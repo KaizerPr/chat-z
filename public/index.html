@@ -1,27 +1,93 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chat Z</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
 </head>
-<body>
-  <div class="chat-container">
-    <header>
-      <h1><span class="rainbow">Chat Z</span></h1>
-    </header>
+<body class="bg-[#070218] text-white">
 
-    <main id="chat-box"></main>
-
-    <form id="chat-form">
-      <input type="text" id="nickname" placeholder="Seu nick" required />
-      <input type="text" id="message" placeholder="Digite sua mensagem..." required autocomplete="off" />
-      <button type="submit">Enviar</button>
-    </form>
+  <!-- Banner Topo -->
+  <div class="w-full">
+    <img src="pictures/banner.png" alt="Banner Chat Z" class="w-full max-h-[300px] object-cover">
   </div>
 
+  <!-- Abas -->
+  <div class="w-full flex justify-center bg-[#1a103d] shadow-md sticky top-0 z-10">
+    <div class="max-w-4xl w-full flex space-x-4 px-4 py-3">
+      <button class="tab-button active-tab" data-tab="chat">Bate-papo</button>
+      <button class="tab-button" data-tab="credits">Créditos</button>
+    </div>
+  </div>
+
+  <!-- Conteúdo Principal -->
+  <div class="max-w-4xl mx-auto p-4">
+
+    <!-- Aba do Chat -->
+    <div id="chat" class="tab-content">
+      <div id="chatContainer" class="bg-[#1f1f1f] p-6 rounded-xl shadow-lg space-y-4">
+        <div id="messagesContainer" class="h-96 overflow-y-auto p-2 rounded-md bg-[#2a2a2a] border border-[#333]"></div>
+
+        <form id="chat-form" class="space-y-4">
+          <input type="text" id="nickname" placeholder="Seu nick" required class="w-full px-4 py-2 rounded-md bg-[#333] text-white border border-[#444]" />
+          <div class="flex space-x-2">
+            <input type="text" id="message" placeholder="Digite sua mensagem..." required autocomplete="off" class="flex-1 px-4 py-2 rounded-md bg-[#333] text-white border border-[#444]" />
+            <button type="submit" class="bg-[#e14ea7] px-4 py-2 rounded-md hover:bg-[#fadf73] text-black font-bold transition">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Aba de Créditos -->
+    <div id="credits" class="tab-content hidden bg-[#1f1f1f] p-6 rounded-xl shadow-lg">
+      <h2 class="text-2xl mb-4 text-[#fadf73] font-bold">Créditos</h2>
+      <p class="text-white">Este projeto foi criado por Z. Inspirado em vibes psicodélicas, cores intensas e energia criativa ⚡</p>
+      <p class="mt-4 text-sm text-gray-400">Feito com ❤️ usando HTML, CSS, Tailwind e JavaScript.</p>
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
   <script src="/socket.io/socket.io.js"></script>
   <script src="script.js"></script>
+  <script>
+    const buttons = document.querySelectorAll('.tab-button');
+    const tabs = document.querySelectorAll('.tab-content');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active-tab'));
+        button.classList.add('active-tab');
+
+        tabs.forEach(tab => {
+          tab.classList.add('hidden');
+        });
+
+        document.getElementById(button.dataset.tab).classList.remove('hidden');
+      });
+    });
+  </script>
+
+  <style>
+    .tab-button {
+      background: transparent;
+      color: #fadf73;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+    }
+
+    .tab-button:hover {
+      color: #e14ea7;
+    }
+
+    .active-tab {
+      border-bottom: 2px solid #e14ea7;
+    }
+  </style>
 </body>
 </html>

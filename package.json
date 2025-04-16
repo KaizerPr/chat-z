@@ -1,15 +1,19 @@
 {
     "name": "chat-z",
     "version": "1.0.0",
+<<<<<<< HEAD
     "description": "Chat Z - Um chat em tempo real",
+=======
+    "description": "",
+>>>>>>> 09f60f0 (Corrigido main do package.json para server.js)
     "main": "server.js",
     "scripts": {
-        "start": "node server.js"
-    },
-    "dependencies": {
-        "express": "^5.1.0",
-        "socket.io": "^4.8.1"
+      "start": "node server.js"
     },
     "author": "",
-    "license": "ISC"
-}
+    "license": "ISC",
+    "dependencies": {
+      "express": "^4.18.2"
+    }
+  }
+  

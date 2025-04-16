@@ -1,62 +1,76 @@
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
   
+  /* Estilo global */
   body {
     font-family: 'Arial', sans-serif;
-    background-color: #121212;
+    background-color: #070218;
     color: #e0e0e0;
   }
   
+  /* Container geral do chat */
   #chatContainer {
-    width: 100%;
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
     background-color: #1f1f1f;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
   }
   
+  /* Área das mensagens */
   #messagesContainer {
     height: 400px;
     overflow-y: auto;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
+    padding: 16px;
+    background-color: #2a2a2a;
+    border: 1px solid #333;
+    border-radius: 8px;
   }
   
+  /* Área de entrada */
   #inputContainer {
     display: flex;
     gap: 10px;
     align-items: center;
   }
   
+  /* Campos de texto */
   input {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     border: 1px solid #444;
-    border-radius: 4px;
+    border-radius: 6px;
     background-color: #333;
     color: #e0e0e0;
+    font-size: 16px;
   }
   
+  /* Botão */
   button {
-    padding: 10px 20px;
-    background-color: #6200ea;
+    padding: 12px 24px;
+    background-color: #e14ea7;
     border: none;
-    border-radius: 4px;
-    color: #fff;
+    border-radius: 6px;
+    color: #000;
+    font-weight: bold;
     cursor: pointer;
+    transition: background-color 0.3s ease;
   }
   
   button:hover {
-    background-color: #3700b3;
+    background-color: #fadf73;
+    color: #000;
   }
   
+  /* Mensagens */
   .message {
     margin-bottom: 10px;
-    font-size: 14px;
+    font-size: 15px;
+    line-height: 1.5;
   }
   
   .message .time {
@@ -64,6 +78,7 @@
     color: #bbb;
   }
   
+  /* Destaque de mensagem */
   .message.highlight {
     color: #ff6347;
     font-weight: bold;
@@ -71,14 +86,22 @@
   }
   
   @keyframes colorChange {
-    0% {
-      color: #ff6347;
-    }
-    50% {
-      color: #32cd32;
-    }
-    100% {
-      color: #00bfff;
-    }
+    0% { color: #ff6347; }
+    50% { color: #32cd32; }
+    100% { color: #00bfff; }
+  }
+  
+  /* Scroll customizado */
+  #messagesContainer::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  #messagesContainer::-webkit-scrollbar-track {
+    background: #1f1f1f;
+  }
+  
+  #messagesContainer::-webkit-scrollbar-thumb {
+    background-color: #fadf73;
+    border-radius: 8px;
   }
   
