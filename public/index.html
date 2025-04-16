@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chat Z</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="chat-container">
+    <header>
+      <h1><span class="rainbow">Chat Z</span></h1>
+    </header>
+
+    <main id="chat-box"></main>
+
+    <form id="chat-form">
+      <input type="text" id="nickname" placeholder="Seu nick" required />
+      <input type="text" id="message" placeholder="Digite sua mensagem..." required autocomplete="off" />
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

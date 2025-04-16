@@ -1,0 +1,15 @@
+{
+    "name": "chat-z",
+    "version": "1.0.0",
+    "description": "Chat Z - Um chat em tempo real",
+    "main": "index.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "express": "^5.1.0",
+        "socket.io": "^4.8.1"
+    },
+    "author": "",
+    "license": "ISC"
+}
