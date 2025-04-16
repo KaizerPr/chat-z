@@ -2,7 +2,7 @@
     "name": "chat-z",
     "version": "1.0.0",
     "description": "Chat Z - Um chat em tempo real",
-    "main": "index.js",
+    "main": "server.js",
     "scripts": {
         "start": "node server.js"
     },
