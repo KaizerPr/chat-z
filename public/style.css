@@ -3,25 +3,25 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  /* Estilo global */
-  body {
+}
+
+/* Estilo global */
+body {
     font-family: 'Arial', sans-serif;
     background-color: #070218;
     color: #e0e0e0;
-  }
-  
-  /* Container geral do chat */
-  #chatContainer {
+}
+
+/* Container geral do chat */
+#chatContainer {
     background-color: #1f1f1f;
     padding: 24px;
     border-radius: 16px;
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
-  }
-  
-  /* Área das mensagens */
-  #messagesContainer {
+}
+
+/* Área das mensagens */
+#messagesContainer {
     height: 400px;
     overflow-y: auto;
     margin-bottom: 16px;
@@ -29,17 +29,18 @@
     background-color: #2a2a2a;
     border: 1px solid #333;
     border-radius: 8px;
-  }
-  
-  /* Área de entrada */
-  #inputContainer {
+    font-size: 14px; /* Tamanho da fonte mais acessível */
+}
+
+/* Área de entrada */
+#inputContainer {
     display: flex;
     gap: 10px;
     align-items: center;
-  }
-  
-  /* Campos de texto */
-  input {
+}
+
+/* Campos de texto */
+input {
     width: 100%;
     padding: 12px;
     border: 1px solid #444;
@@ -47,10 +48,10 @@
     background-color: #333;
     color: #e0e0e0;
     font-size: 16px;
-  }
-  
-  /* Botão */
-  button {
+}
+
+/* Botão */
+button {
     padding: 12px 24px;
     background-color: #e14ea7;
     border: none;
@@ -59,49 +60,66 @@
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
+}
+
+button:hover {
     background-color: #fadf73;
     color: #000;
-  }
-  
-  /* Mensagens */
-  .message {
+}
+
+/* Mensagens */
+.message {
     margin-bottom: 10px;
     font-size: 15px;
     line-height: 1.5;
-  }
-  
-  .message .time {
+    word-wrap: break-word; /* Quebra de linha nas mensagens longas */
+}
+
+/* Hora das mensagens */
+.message .time {
     font-size: 12px;
     color: #bbb;
-  }
-  
-  /* Destaque de mensagem */
-  .message.highlight {
+}
+
+/* Destaque de mensagem do 'zKira' */
+.message.highlight {
     color: #ff6347;
     font-weight: bold;
     animation: colorChange 2s infinite alternate;
-  }
-  
-  @keyframes colorChange {
+    background-color: rgba(255, 99, 71, 0.1); /* Adiciona um fundo leve para destaque */
+    border-left: 5px solid #ff6347; /* Adiciona uma linha de destaque na lateral */
+    padding-left: 10px; /* Espaço extra para a linha de destaque */
+    margin-left: 10px; /* Afasta um pouco as mensagens destacadas */
+}
+
+@keyframes colorChange {
     0% { color: #ff6347; }
     50% { color: #32cd32; }
     100% { color: #00bfff; }
-  }
-  
-  /* Scroll customizado */
-  #messagesContainer::-webkit-scrollbar {
+}
+
+/* Scroll customizado */
+#messagesContainer::-webkit-scrollbar {
     width: 8px;
-  }
-  
-  #messagesContainer::-webkit-scrollbar-track {
+}
+
+#messagesContainer::-webkit-scrollbar-track {
     background: #1f1f1f;
-  }
-  
-  #messagesContainer::-webkit-scrollbar-thumb {
+}
+
+#messagesContainer::-webkit-scrollbar-thumb {
     background-color: #fadf73;
     border-radius: 8px;
-  }
-  
+}
+
+/* Animação de entrada das mensagens */
+.message {
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    100% {
+        opacity: 1;
+    }
+}
