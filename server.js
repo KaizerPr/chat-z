@@ -29,7 +29,7 @@ io.on('connection', (socket) => {
   // Envia nova mensagem para todos
   socket.on('sendMessage', (data) => {
     messages.push(data);
-    io.emit('receivedMessage', data);
+    io.emit('receivedMessage', data);  // Emite a nova mensagem para todos os clientes
   });
 
   socket.on('disconnect', () => {

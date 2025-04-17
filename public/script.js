@@ -20,7 +20,8 @@ function addMessage(data) {
   const msgElement = document.createElement('div');
   msgElement.classList.add('message');
 
-  if (data.nickname.trim().toLowerCase() === fixedNickname.toLowerCase()) {
+  // Ajuste para garantir que o nickname seja comparado sem espaços extras
+  if (data.nickname.trim().toLowerCase() === fixedNickname.trim().toLowerCase()) {
     msgElement.classList.add('highlight');
   }
 
@@ -54,12 +55,15 @@ chatForm.addEventListener('submit', (e) => {
   const nickname = nicknameInput.value.trim();
   const message = messageInput.value.trim();
 
+  // Verifica se a mensagem e o nickname são válidos
   if (nickname && message) {
     const msgData = {
       nickname,
       message,
       time: getTime()
     };
+
+    console.log('Enviando mensagem:', msgData); // Para debugar e garantir que a mensagem está sendo enviada
 
     socket.emit('sendMessage', msgData);
     messageInput.value = '';

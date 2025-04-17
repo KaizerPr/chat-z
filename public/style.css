@@ -73,6 +73,8 @@ button:hover {
     font-size: 15px;
     line-height: 1.5;
     word-wrap: break-word; /* Quebra de linha nas mensagens longas */
+    opacity: 0; /* Começa invisível para a animação */
+    animation: fadeIn 0.5s forwards; /* Animação de fadeIn */
 }
 
 /* Hora das mensagens */
@@ -85,13 +87,21 @@ button:hover {
 .message.highlight {
     color: #ff6347;
     font-weight: bold;
-    animation: colorChange 2s infinite alternate;
-    background-color: rgba(255, 99, 71, 0.1); /* Adiciona um fundo leve para destaque */
-    border-left: 5px solid #ff6347; /* Adiciona uma linha de destaque na lateral */
-    padding-left: 10px; /* Espaço extra para a linha de destaque */
+    background-color: rgba(255, 99, 71, 0.1); /* Fundo leve para destaque */
+    border-left: 5px solid #ff6347; /* Linha de destaque */
+    padding-left: 10px; /* Espaço extra para a linha */
     margin-left: 10px; /* Afasta um pouco as mensagens destacadas */
+    animation: colorChange 2s infinite alternate; /* Animação de mudança de cor */
 }
 
+/* Animação de fadeIn */
+@keyframes fadeIn {
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Animação de mudança de cor do destaque */
 @keyframes colorChange {
     0% { color: #ff6347; }
     50% { color: #32cd32; }
@@ -110,16 +120,4 @@ button:hover {
 #messagesContainer::-webkit-scrollbar-thumb {
     background-color: #fadf73;
     border-radius: 8px;
-}
-
-/* Animação de entrada das mensagens */
-.message {
-    opacity: 0;
-    animation: fadeIn 0.5s forwards;
-}
-
-@keyframes fadeIn {
-    100% {
-        opacity: 1;
-    }
 }
