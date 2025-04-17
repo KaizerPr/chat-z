@@ -12,7 +12,7 @@ let messages = []; // Armazena as mensagens do chat
 // Serve arquivos estáticos da pasta "public"
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Serve favicon vazio para evitar erro 404
+// Evita erro de favicon
 app.get('/favicon.ico', (req, res) => res.status(204).end());
 
 // Rota principal
@@ -35,4 +35,10 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => {
     console.log('❌ Usuário desconectado');
   });
+});
+
+// 🔧 Aqui é onde a mágica acontece pro Render funcionar:
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+  console.log(`🚀 Servidor rodando na porta ${PORT}`);
 });
