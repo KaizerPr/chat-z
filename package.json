@@ -1,11 +1,7 @@
 {
     "name": "chat-z",
     "version": "1.0.0",
-<<<<<<< HEAD
     "description": "Chat Z - Um chat em tempo real",
-=======
-    "description": "",
->>>>>>> 09f60f0 (Corrigido main do package.json para server.js)
     "main": "server.js",
     "scripts": {
       "start": "node server.js"
