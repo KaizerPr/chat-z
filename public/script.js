@@ -1,6 +1,6 @@
 const socket = io();
 
-const chatBox = document.getElementById('chat-box');
+const chatBox = document.getElementById('messagesContainer');
 const chatForm = document.getElementById('chat-form');
 const nicknameInput = document.getElementById('nickname');
 const messageInput = document.getElementById('message');
