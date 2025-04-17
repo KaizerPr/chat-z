@@ -20,7 +20,7 @@ function addMessage(data) {
   const msgElement = document.createElement('div');
   msgElement.classList.add('message');
 
-  if (data.nickname === fixedNickname) {
+  if (data.nickname.trim().toLowerCase() === fixedNickname.toLowerCase()) {
     msgElement.classList.add('highlight');
   }
 
